@@ -1,0 +1,156 @@
+@import "tailwindcss";
+
+/*
+  MakersLuxe design tokens.
+  Centralized so the brand can be re-themed from one place —
+  components should reference these tokens, not hard-coded colors.
+*/
+:root {
+  /* Neutrals */
+  --color-paper: #faf7f2;
+  --color-paper-dim: #f2ede2;
+  --color-white: #ffffff;
+  --color-ink: #1b1812;
+  --color-ink-soft: #34302a;
+  --color-stone-200: #e9e2d5;
+  --color-stone-300: #ddd3c0;
+  --color-stone-500: #a39a89;
+  --color-stone-600: #837a6a;
+
+  /* Accent — warm clay/copper */
+  --color-accent: #b1552b;
+  --color-accent-dark: #8c4220;
+  --color-accent-light: #d98a5b;
+  --color-accent-soft: #f3e2d3;
+
+  /* Semantic */
+  --color-border: var(--color-stone-200);
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
+
+  /* Shadows */
+  --shadow-soft: 0 1px 2px rgba(27, 24, 18, 0.04), 0 8px 24px -12px rgba(27, 24, 18, 0.14);
+  --shadow-lift: 0 4px 10px rgba(27, 24, 18, 0.06), 0 24px 48px -18px rgba(27, 24, 18, 0.22);
+}
+
+@theme inline {
+  --color-paper: var(--color-paper);
+  --color-paper-dim: var(--color-paper-dim);
+  --color-white: var(--color-white);
+  --color-ink: var(--color-ink);
+  --color-ink-soft: var(--color-ink-soft);
+  --color-stone-200: var(--color-stone-200);
+  --color-stone-300: var(--color-stone-300);
+  --color-stone-500: var(--color-stone-500);
+  --color-stone-600: var(--color-stone-600);
+  --color-accent: var(--color-accent);
+  --color-accent-dark: var(--color-accent-dark);
+  --color-accent-light: var(--color-accent-light);
+  --color-accent-soft: var(--color-accent-soft);
+  --color-border: var(--color-border);
+
+  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-inter);
+
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+
+  --shadow-soft: var(--shadow-soft);
+  --shadow-lift: var(--shadow-lift);
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display), Georgia, serif;
+  letter-spacing: -0.01em;
+}
+
+/* Visible focus states everywhere, including custom components */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: var(--color-accent-soft);
+  color: var(--color-ink);
+}
+
+/* Subtle, premium motion */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.9s ease both;
+}
+
+.delay-1 { animation-delay: 0.08s; }
+.delay-2 { animation-delay: 0.16s; }
+.delay-3 { animation-delay: 0.24s; }
+.delay-4 { animation-delay: 0.32s; }
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-fade-up,
+  .animate-fade-in {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Accessible native accordion — hide default marker, we draw our own */
+details > summary {
+  list-style: none;
+  cursor: pointer;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
