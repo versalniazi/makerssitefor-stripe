@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { DesignPackage } from "@/data/packages";
-import { CheckIcon, ArrowRightIcon } from "@/components/icons/UIIcons";
+import { CheckIcon } from "@/components/icons/UIIcons";
+import AddToCartButton from "@/components/AddToCartButton";
 import { formatPrice } from "@/lib/utils";
 
 export default function PackageCard({ pkg }: { pkg: DesignPackage }) {
@@ -37,17 +38,24 @@ export default function PackageCard({ pkg }: { pkg: DesignPackage }) {
         ))}
       </ul>
 
-      <Link
-        href={`/packages/${pkg.slug}`}
-        className={`mt-7 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-medium transition-colors ${
-          pkg.featured
-            ? "bg-paper text-ink hover:bg-accent hover:text-white"
-            : "bg-ink text-paper hover:bg-accent"
-        }`}
-      >
-        View Package
-        <ArrowRightIcon className="h-4 w-4" />
-      </Link>
+      <div className="mt-7 flex flex-col gap-2.5">
+        <AddToCartButton
+          slug={pkg.slug}
+          name={pkg.name}
+          price={pkg.price}
+          currency={pkg.currency}
+          variant={pkg.featured ? "inverted" : "primary"}
+          className="w-full"
+        />
+        <Link
+          href={`/packages/${pkg.slug}`}
+          className={`text-center text-sm font-medium underline-offset-4 hover:underline ${
+            pkg.featured ? "text-paper/80" : "text-ink-soft"
+          }`}
+        >
+          View Package Details
+        </Link>
+      </div>
     </div>
   );
 }

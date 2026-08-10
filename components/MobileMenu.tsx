@@ -5,6 +5,7 @@ import { createPortal } from "react-dom";
 import Link from "next/link";
 import type { NavLink } from "@/lib/config";
 import { MenuIcon, CloseIcon } from "@/components/icons/UIIcons";
+import CartButton from "@/components/CartButton";
 
 const subscribeNoop = () => () => {};
 
@@ -73,14 +74,17 @@ export default function MobileMenu({ links }: { links: NavLink[] }) {
                 >
                   MAKERSLUXE
                 </Link>
-                <button
-                  type="button"
-                  onClick={() => setOpen(false)}
-                  aria-label="Close menu"
-                  className="flex h-10 w-10 items-center justify-center rounded-full text-ink transition-colors hover:bg-stone-200/60"
-                >
-                  <CloseIcon className="h-6 w-6" />
-                </button>
+                <div className="flex items-center gap-1">
+                  <CartButton />
+                  <button
+                    type="button"
+                    onClick={() => setOpen(false)}
+                    aria-label="Close menu"
+                    className="flex h-10 w-10 items-center justify-center rounded-full text-ink transition-colors hover:bg-stone-200/60"
+                  >
+                    <CloseIcon className="h-6 w-6" />
+                  </button>
+                </div>
               </div>
 
               <nav className="flex flex-1 flex-col justify-center gap-1 px-8">

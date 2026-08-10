@@ -6,6 +6,7 @@ import SectionHeading from "@/components/SectionHeading";
 import PackageGrid from "@/components/PackageGrid";
 import ProcessSteps, { type ProcessStep } from "@/components/ProcessSteps";
 import CTASection from "@/components/CTASection";
+import AddToCartButton from "@/components/AddToCartButton";
 import { CheckIcon } from "@/components/icons/UIIcons";
 import { packages, getPackageBySlug } from "@/data/packages";
 import { formatPrice } from "@/lib/utils";
@@ -78,12 +79,7 @@ export default async function PackagePage({
               </p>
 
               <div className="mt-8 flex flex-wrap gap-4">
-                <Link
-                  href={`/contact?package=${pkg.slug}`}
-                  className="inline-flex items-center justify-center rounded-full bg-ink px-7 py-3.5 text-[15px] font-medium text-paper transition-colors hover:bg-accent"
-                >
-                  Request This Package
-                </Link>
+                <AddToCartButton slug={pkg.slug} name={pkg.name} price={pkg.price} currency={pkg.currency} size="lg" />
                 <Link
                   href="/packages"
                   className="inline-flex items-center justify-center rounded-full border border-ink/20 px-7 py-3.5 text-[15px] font-medium text-ink transition-colors hover:border-ink hover:bg-ink hover:text-paper"
@@ -91,6 +87,13 @@ export default async function PackagePage({
                   View All Packages
                 </Link>
               </div>
+              <p className="mt-4 text-sm text-stone-600">
+                Prefer to discuss your project first?{" "}
+                <Link href={`/contact?package=${pkg.slug}`} className="font-medium text-accent hover:text-accent-dark">
+                  Request a custom quote
+                </Link>
+                .
+              </p>
             </div>
 
             <div className="rounded-[var(--radius-md)] border border-stone-200 bg-white p-7 shadow-[var(--shadow-soft)]">
@@ -146,10 +149,10 @@ export default async function PackagePage({
       </section>
 
       <CTASection
-        title={`Ready to request ${pkg.name}?`}
-        description="Submit your project details and we'll follow up to get started."
-        primaryCta={{ label: "Request This Package", href: `/contact?package=${pkg.slug}` }}
-        secondaryCta={{ label: "View All Packages", href: "/packages" }}
+        title={`Ready to get started with ${pkg.name}?`}
+        description="Add it to your cart to check out, or reach out first if you'd like to discuss your project."
+        primaryCta={{ label: "View Cart", href: "/cart" }}
+        secondaryCta={{ label: "Contact Us", href: `/contact?package=${pkg.slug}` }}
       />
     </>
   );

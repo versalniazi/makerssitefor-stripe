@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Container from "@/components/Container";
 import MobileMenu from "@/components/MobileMenu";
+import CartButton from "@/components/CartButton";
 import { navLinks } from "@/lib/config";
 
 export default function Header() {
@@ -23,16 +24,16 @@ export default function Header() {
           ))}
         </nav>
 
-        <div className="hidden md:block">
+        <div className="flex items-center gap-2">
+          <CartButton />
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center rounded-full bg-ink px-6 py-2.5 text-sm font-medium text-paper transition-colors hover:bg-accent"
+            className="hidden items-center justify-center rounded-full bg-ink px-6 py-2.5 text-sm font-medium text-paper transition-colors hover:bg-accent md:inline-flex"
           >
             Start a Project
           </Link>
+          <MobileMenu links={navLinks} />
         </div>
-
-        <MobileMenu links={navLinks} />
       </Container>
     </header>
   );
