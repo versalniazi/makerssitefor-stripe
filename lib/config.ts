@@ -9,9 +9,8 @@ export const siteConfig = {
   businessDescription:
     "MakersLuxe Limited provides professional graphic design services for businesses, entrepreneurs, creators, and individuals — from individual design tasks to complete branding packages.",
 
-  // Placeholder contact details — replace with MakersLuxe Limited's real
-  // details before launch. Nothing here should be treated as verified.
-  email: "hello@makersluxe.com",
+  // Contact details for MakersLuxe Limited.
+  email: "makersluxelimited0@gmail.com",
   phone: "",
 
   websiteUrl: "https://www.makersluxe.com",
