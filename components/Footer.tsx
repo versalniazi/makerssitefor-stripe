@@ -23,6 +23,18 @@ export default function Footer() {
               {siteConfig.email}
             </a>
           ) : null}
+          {siteConfig.companyNumber ? (
+            <p className="mt-2 max-w-sm text-xs leading-relaxed text-stone-600">
+              {siteConfig.legalBusinessName} is registered in {siteConfig.companyJurisdiction}, Company No.{" "}
+              {siteConfig.companyNumber}.
+              {siteConfig.registeredOfficeAddress ? (
+                <>
+                  <br />
+                  Registered office: {siteConfig.registeredOfficeAddress}.
+                </>
+              ) : null}
+            </p>
+          ) : null}
         </div>
 
         <div>

@@ -13,6 +13,12 @@ export const siteConfig = {
   email: "makersluxelimited0@gmail.com",
   phone: "",
 
+  // Official registration details, per Companies House (Scotland).
+  companyNumber: "SC845813",
+  companyJurisdiction: "Scotland, United Kingdom",
+  registeredOfficeAddress: "289 Kings Park Avenue, Rutherglen, Glasgow, Scotland, G73 2AF",
+  incorporatedOn: "22 April 2025",
+
   websiteUrl: "https://www.makersluxe.com",
   currency: "USD" as const,
 

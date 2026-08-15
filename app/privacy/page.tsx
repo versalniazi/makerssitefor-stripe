@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Container from "@/components/Container";
+import CompanyDetails from "@/components/CompanyDetails";
 import { siteConfig } from "@/lib/config";
 
 export const metadata: Metadata = {
@@ -63,6 +64,7 @@ export default function PrivacyPage() {
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-accent">Legal</p>
           <h1 className="text-4xl text-ink sm:text-5xl">Privacy Policy</h1>
           <p className="mt-4 text-sm text-stone-600">Last updated: August 2026</p>
+          <CompanyDetails />
         </div>
 
         <div className="mt-12 max-w-2xl space-y-10">

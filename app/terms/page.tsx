@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Container from "@/components/Container";
+import CompanyDetails from "@/components/CompanyDetails";
 import { siteConfig } from "@/lib/config";
 
 export const metadata: Metadata = {
@@ -39,7 +40,7 @@ const sections = [
   },
   {
     title: "8. Cancellations & Refunds",
-    body: "Cancellations and refund eligibility are governed by our Refund & Cancellation Policy, which forms part of these Terms.",
+    body: "Cancellations and refund eligibility — including any statutory cancellation rights that apply to your purchase — are governed by our Refund & Cancellation Policy, which forms part of these Terms.",
   },
   {
     title: "9. Limitation of Liability",
@@ -47,7 +48,7 @@ const sections = [
   },
   {
     title: "10. Governing Law",
-    body: "These Terms are governed by the laws applicable to MakersLuxe Limited's place of business, without regard to conflict-of-law principles, except where local consumer protection law requires otherwise.",
+    body: `These Terms are governed by the laws of Scotland, and the Scottish courts have exclusive jurisdiction over any dispute arising from them — except where mandatory consumer protection law in your own country of residence gives you additional rights or a different venue.`,
   },
   {
     title: "11. Changes to These Terms",
@@ -67,6 +68,7 @@ export default function TermsPage() {
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-accent">Legal</p>
           <h1 className="text-4xl text-ink sm:text-5xl">Terms & Conditions</h1>
           <p className="mt-4 text-sm text-stone-600">Last updated: August 2026</p>
+          <CompanyDetails />
         </div>
 
         <div className="mt-12 max-w-2xl space-y-10">
